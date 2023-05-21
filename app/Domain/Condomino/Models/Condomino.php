@@ -20,6 +20,7 @@ class Condomino extends Authenticatable
         'name',
         'email',
         'password',
+        'status'
     ];
 
 }
