@@ -12,7 +12,7 @@
 Este projeto antes de tudo é um protótipo de estudo para implementação do DDD (Driven Domain Design) em um projeto Laravel. A intenção aqui é criar um sistema de gerenciamento de condominio. O Projeto consistirá em duas partes, essa, que é a parte backend do projeto e o front end que será implementado em VueJS
 
 ## Leituras
-Conforme vou seguinto o projeto, iriei postando algumas leituras que fiz durante o desenvolvimento que contribuiram com o mesmo
+Conforme vou seguindo o projeto, iriei postando algumas leituras que fiz durante o desenvolvimento que contribuiram com o mesmo
 
 https://stitcher.io/blog/laravel-beyond-crud-01-domain-oriented-laravel
 
