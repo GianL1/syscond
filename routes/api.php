@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use \App\Api\Auth\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::namespace('\App\Api\Task\Controllers')->group(function (){
 
-    Route::get('/','CondominoController@index');
-    Route::get('/','CondominoController@store');
+Route::post('/user',[AuthController::class, 'create']);
+Route::namespace('\App\Api\Auth\Controllers')->group(function (){
+
+    Route::get('/ping', function (){
+        return ['pong' => true];
+    });
+//    Route::post('/user','AuthController@create');
+//    Route::get('/401', 'AuthController@unauthorized')->name('login');
+
+
+//    Route::post('/auth/login', 'AuthController@login');
+//    Route::post('/auth/logout', 'AuthController@logout');
+//    Route::post('/auth/refresh', 'AuthController@refresh');
+
+
+
+//    Route::put('/user','UserController@update');
+//    Route::post('/user/avatar','UserController@updateAvatar');
+//
+//    Route::get('/user','UserController@read');
+//    Route::get('/user/{id}','UserController@read');
 
 });

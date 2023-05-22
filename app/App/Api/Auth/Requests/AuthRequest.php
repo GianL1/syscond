@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Api\Task\Requests;
+namespace App\Api\Auth\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CondominoRequest extends FormRequest
+class AuthRequest extends FormRequest
 {
+
     public function rules():array
     {
         return [
