@@ -16,23 +16,24 @@ use \App\Api\Auth\Controllers\AuthController;
 */
 
 
-Route::post('/user',[AuthController::class, 'create']);
 Route::namespace('\App\Api\Auth\Controllers')->group(function (){
 
     Route::get('/ping', function (){
         return ['pong' => true];
     });
+
+    Route::post('/user',[AuthController::class, 'create']);
 //    Route::post('/user','AuthController@create');
-//    Route::get('/401', 'AuthController@unauthorized')->name('login');
+    Route::get('/401', 'AuthController@unauthorized')->name('login');
 
 
-//    Route::post('/auth/login', 'AuthController@login');
-//    Route::post('/auth/logout', 'AuthController@logout');
-//    Route::post('/auth/refresh', 'AuthController@refresh');
+    Route::post('/auth/login', 'AuthController@login');
+    Route::post('/auth/logout', 'AuthController@logout');
+    Route::post('/auth/refresh', 'AuthController@refresh');
 
 
 
-//    Route::put('/user','UserController@update');
+    Route::put('/user','UserController@update');
 //    Route::post('/user/avatar','UserController@updateAvatar');
 //
 //    Route::get('/user','UserController@read');

@@ -2,7 +2,7 @@
 
 namespace Domain\User\Models;
 
-use Tymon\JWTAuth\Contracts\JWTSubject;
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -17,7 +17,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function getJWTIdentifier()
     {
-        $this->getKey();
+        return (int) $this->getAttribute($this->getKeyName());
     }
 
     public function getJWTCustomClaims()
