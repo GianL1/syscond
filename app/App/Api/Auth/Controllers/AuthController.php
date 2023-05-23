@@ -8,7 +8,6 @@ use Domain\Auth\Actions\CreateUserAction;
 use Domain\Auth\Actions\LoginUserAction;
 use Domain\User\DataTransferObjects\AuthUserData;
 use Domain\User\DataTransferObjects\UserData;
-use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -37,27 +36,28 @@ class AuthController extends Controller
     {
         $data = AuthUserData::fromRequest($request);
 
-        $response = [];
-
-        $response['token'] = $action($data);
-
-        if (!$response['token']) {
+        if (!$action($data)) {
             $this->unauthorized();
         }
 
-        return $response;
+        return [
+            'token' => $action($data)
+        ];
 
     }
 
     public function logout()
     {
-
+        \auth()->logout();
     }
 
     public function refresh()
     {
-
+        return [
+            'token' => auth()->refresh()
+        ];
     }
+
     public function create(UserRequest $request, CreateUserAction $action)
     {
 
