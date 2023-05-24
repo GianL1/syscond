@@ -2,6 +2,7 @@
 
 namespace Domain\User\Models;
 
+use Domain\User\DataTransferObjects\UpdateUserData;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;

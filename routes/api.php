@@ -1,5 +1,6 @@
 <?php
 
+use App\Api\User\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use \App\Api\Auth\Controllers\AuthController;
@@ -23,18 +24,13 @@ Route::namespace('\App\Api\Auth\Controllers')->group(function (){
     });
 
     Route::post('/user',[AuthController::class, 'create']);
-//    Route::post('/user','AuthController@create');
     Route::get('/401', 'AuthController@unauthorized')->name('login');
-
-
     Route::post('/auth/login', 'AuthController@login');
     Route::post('/auth/logout', 'AuthController@logout');
     Route::post('/auth/refresh', 'AuthController@refresh');
 
-
-
-    Route::put('/user','UserController@update');
-//    Route::post('/user/avatar','UserController@updateAvatar');
+    Route::put('/user',[UserController::class, 'update']);
+    Route::delete('/user',[UserController::class, 'delete']);
 //
 //    Route::get('/user','UserController@read');
 //    Route::get('/user/{id}','UserController@read');
