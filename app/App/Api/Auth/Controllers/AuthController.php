@@ -8,6 +8,7 @@ use Domain\Auth\Actions\CreateUserAction;
 use Domain\Auth\Actions\LoginUserAction;
 use Domain\User\DataTransferObjects\AuthUserData;
 use Domain\User\DataTransferObjects\UserData;
+use Illuminate\Http\JsonResponse;
 
 class AuthController extends Controller
 {
@@ -23,7 +24,7 @@ class AuthController extends Controller
     }
 
     /**
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function unauthorized()
     {

@@ -2,7 +2,6 @@
 
 namespace Domain\User\Actions;
 
-use Domain\User\DataTransferObjects\UpdateUserData;
 use Domain\User\Models\User;
 use Support\Enum\StatusHttpEnum;
 

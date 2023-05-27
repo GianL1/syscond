@@ -26,10 +26,6 @@ class UpdateUserAction
         $user->email = $this->validateEmail($user, $userData);
         $user->password = $this->validatePassword($user, $userData);
 
-        return response()->json([
-            'success' => 'Usuário atualizado com sucesso'
-        ], StatusHttpEnum::OK
-        );
     }
 
     private function validateEmail(User $user, UpdateUserData $userData)

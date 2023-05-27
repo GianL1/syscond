@@ -2,10 +2,10 @@
 
 namespace Domain\User\Models;
 
-use Domain\User\DataTransferObjects\UpdateUserData;
-use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
+use Domain\Apartment\Models\Apartment;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -13,7 +13,7 @@ class User extends Authenticatable implements JWTSubject
 
     public $timestamps = false;
 
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'password', 'apartments_id'];
     protected $hidden = ['password', 'token'];
 
     public function getJWTIdentifier()
@@ -24,5 +24,10 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function apartment()
+    {
+        return $this->hasOne(Apartment::class,'id');
     }
 }
