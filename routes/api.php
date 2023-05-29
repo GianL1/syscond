@@ -34,6 +34,7 @@ Route::namespace('\App\Api\Auth\Controllers')->group(function (){
     Route::put('/user',[UserController::class, 'update']);
     Route::delete('/user',[UserController::class, 'delete']);
 
+    Route::get('/bloco/index', [BlocoController::class, 'index']);
     Route::post('/bloco', [BlocoController::class, 'create']);
     Route::put('/bloco', [BlocoController::class, 'update']);
     Route::delete('/bloco', [BlocoController::class, 'delete']);

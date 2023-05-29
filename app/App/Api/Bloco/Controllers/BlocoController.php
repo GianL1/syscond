@@ -7,12 +7,14 @@ use App\Api\User\Requests\UserRequest;
 use App\Core\Http\Controllers\Controller;
 use Domain\Bloco\Actions\CreateBlocoAction;
 use Domain\Bloco\Actions\DeleteBlocoAction;
+use Domain\Bloco\Actions\IndexBlocoAction;
 use Domain\Bloco\Actions\UpdateBlocoAction;
 use Domain\Bloco\DataTransferObjects\BlocoData;
 use Domain\Bloco\DataTransferObjects\UpdateBlocoData;
 use Domain\User\Actions\UpdateUserAction;
 use Domain\User\DataTransferObjects\UpdateUserData;
 use Illuminate\Http\JsonResponse;
+use Spatie\DataTransferObject\Exceptions\UnknownProperties;
 use Support\Enum\StatusHttpEnum;
 
 class BlocoController extends Controller
@@ -38,7 +40,18 @@ class BlocoController extends Controller
         ], 401);
     }
 
+    public function index(IndexBlocoAction $action)
+    {
 
+        return response()->json([
+            'blocos' => $action()
+        ], StatusHttpEnum::OK);
+    }
+
+
+    /**
+     * @throws UnknownProperties
+     */
     public function create(BlocoRequest $request, CreateBlocoAction $action)
     {
 
