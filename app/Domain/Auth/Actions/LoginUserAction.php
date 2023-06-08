@@ -12,7 +12,7 @@ class LoginUserAction
         return auth()->attempt(
             [
                 'email' => $userData->email,
-                'password' => $userData->password
+                'password' => $userData->password,
              ]
         ) ?? null;
     }

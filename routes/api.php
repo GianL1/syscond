@@ -28,6 +28,7 @@ Route::namespace('\App\Api\Auth\Controllers')->group(function (){
     Route::post('/user',[AuthController::class, 'create']);
     Route::get('/401', 'AuthController@unauthorized')->name('login');
     Route::post('/auth/login', 'AuthController@login');
+    Route::get('/auth/verify', 'AuthController@verify');
     Route::post('/auth/logout', 'AuthController@logout');
     Route::post('/auth/refresh', 'AuthController@refresh');
 

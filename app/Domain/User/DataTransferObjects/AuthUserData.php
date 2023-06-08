@@ -12,7 +12,7 @@ class AuthUserData extends UserData
 
         return new Self([
             'email' => $userRequest->email,
-            'password' => $userRequest->password
+            'password' => $userRequest->password,
         ]);
     }
 }

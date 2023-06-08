@@ -18,7 +18,8 @@ class AuthController extends Controller
             'except' => [
                 'login',
                 'create',
-                'unauthorized'
+                'unauthorized',
+                'validate'
             ]
         ]);
     }
@@ -42,9 +43,15 @@ class AuthController extends Controller
         }
 
         return [
-            'token' => $action($data)
+            'token' => $action($data),
+            'user' => ['name' => explode(' ',auth()->user()->getAttribute('name'))[0]]
         ];
 
+    }
+
+    public function verify()
+    {
+        return response()->json([ 'valid' => auth()->check() ]);
     }
 
     public function logout()
